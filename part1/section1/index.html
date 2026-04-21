@@ -1,20 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-    
-    <div id="app">{{ message }}</div>
-    
+
+    <div id="app">
+        <input v-model="message">
+    </div>
+
     <script>
         const { createApp } = Vue
 
         const appObj = {
-            data() {
+            data () {
                 return {
                     message: 'Hello Vue!'
                 }
@@ -24,4 +28,5 @@
         createApp(appObj).mount('#app')
     </script>
 </body>
+
 </html>
