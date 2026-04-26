@@ -1,9 +1,10 @@
 <template>
-    <label> <input type="checkbox" @change="togglePurple" /> Purple </label>
+  <label> <input type="checkbox" @change="$emit('toggle-purple')" /> Purple </label>
 </template>
 
 <script>
 export default {
-    props: ['togglePurple']
-}
+  // props: ['togglePurple']
+  emits: ['toggle-purple'],
+};
 </script>

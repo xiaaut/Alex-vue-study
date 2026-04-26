@@ -1,14 +1,13 @@
 <template>
-  <TogglePurple @toggle-purple="togglePurple"></TogglePurple>
+  <TogglePurple @togglePurple="togglePurple" />
 
-  <CircleColor @change-circle-color="changeCircleColor" :circleColor="circleColor"></CircleColor>
+  <CircleColor :circleColor @changeCircleColor="changeCircleColor" />
 
-  <CircleSize :changeCircleSize="changeCircleSize" :circleSize="circleSize"></CircleSize>
+  <CircleSize :changeCircleSize :circleSize> Circle Size1 </CircleSize>
 
-  <CircleRotate :changeCircleRotate="changeCircleRotate" :circleRotate="circleAngle"></CircleRotate>
+  <CircleRotate :changeCircleRotate :circleAngle>Circle Rotate</CircleRotate>
 
-  <!-- <div class="circle" :class="[circleClass, circleColor]" :style="circleStyle">Hi!</div> -->
-  <Circle :circleClass="circleClass" :circleColor="circleColor" :circleStyle="circleStyle"></Circle>
+  <Circle :circleClass :circleColor :circleStyle />
 </template>
 
 <script>
@@ -19,24 +18,18 @@ import Circle from './components/Circle.vue';
 import CircleColor from './components/CircleColor.vue';
 
 export default {
-  components: {
-    TogglePurple,
-    CircleSize,
-    CircleRotate,
-    Circle,
-    CircleColor,
-  },
   data() {
     return {
       isPurple: false,
       circleColor: '',
       circleSize: 200,
-      circleAngle: '',
+      circleAngle: 0,
     };
   },
 
   methods: {
     togglePurple() {
+      console.log('togglePurple ');
       this.isPurple = !this.isPurple;
     },
 
@@ -57,14 +50,23 @@ export default {
     circleClass() {
       return this.isPurple ? 'purple' : '';
     },
+
     circleStyle() {
       return {
-        width: this.circleSize + 'px',
-        height: this.circleSize + 'px',
+        height: `${this.circleSize}px`,
+        width: `${this.circleSize}px`,
         lineHeight: `${this.circleSize}px`,
         transform: `rotate(${this.circleAngle}deg)`,
       };
     },
+  },
+
+  components: {
+    TogglePurple,
+    CircleSize,
+    CircleRotate,
+    Circle,
+    CircleColor,
   },
 };
 </script>

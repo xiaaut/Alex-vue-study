@@ -1,5 +1,5 @@
 <template>
-  <label> <input type="checkbox" v-model="isPurple" /> Purple </label>
+  <TogglePurple :togglePurple="togglePurple"></TogglePurple>
 
   <select v-model="circleColor">
     <option value="">White</option>
@@ -20,7 +20,12 @@
 </template>
 
 <script>
+import TogglePurple from './components/TogglePurple.vue';
+
 export default {
+  components: {
+    TogglePurple,
+  },
   data() {
     return {
       isPurple: false,
@@ -28,6 +33,12 @@ export default {
       circleSize: 200,
       circleAngle: 0,
     };
+  },
+
+  methods: {
+    togglePurple() {
+      this.isPurple = !this.isPurple;
+    },
   },
 
   computed: {
