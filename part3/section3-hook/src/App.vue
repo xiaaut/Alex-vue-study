@@ -17,6 +17,9 @@ import Circle from './components/Circle.vue';
 import CircleColor from './components/CircleColor.vue';
 import CircleProperty from './components/CircleProperty.vue';
 import { useTogglePurple } from './hooks/togglePurple.js';
+import { useCircleSize } from './hooks/circleSize.js';
+import { useCircleColor } from './hooks/circleColor.js';
+import { useCircleAngle } from './hooks/circleAngle.js';
 
 const { isPurple, togglePurple } = useTogglePurple();
 
@@ -24,20 +27,26 @@ const circleClass = computed(() => {
   return isPurple.value ? 'purple' : '';
 });
 
-const circleSize = ref(200);
-function changeCircleSize(value) {
-  circleSize.value = value;
-}
+// const circleSize = ref(200);
+// function changeCircleSize(value) {
+//   circleSize.value = value;
+// }
 
-const circleAngle = ref(0);
-function changeCircleRotate(value) {
-  circleAngle.value = value;
-}
+const { circleSize, changeCircleSize } = useCircleSize();
 
-const circleColor = ref('');
-function changeCircleColor(value) {
-  circleColor.value = value;
-}
+// const circleAngle = ref(0);
+// function changeCircleRotate(value) {
+//   circleAngle.value = value;
+// }
+
+const { circleAngle, changeCircleRotate } = useCircleAngle();
+
+// const circleColor = ref('');
+// function changeCircleColor(value) {
+//   circleColor.value = value;
+// }
+
+const { circleColor, changeCircleColor } = useCircleColor();
 
 const circleStyle = computed(() => {
   return {
