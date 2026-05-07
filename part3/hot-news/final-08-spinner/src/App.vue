@@ -21,12 +21,12 @@
 
 <script setup>
 import { ref } from 'vue';
-import NavBar from './components/NavBar.vue';
-import Hot from './components/Hot.vue';
-import Sport from './components/Sport.vue';
-import Finance from './components/Finance.vue';
-import Entertainment from './components/Entertainment.vue';
-import Bookmark from './components/Bookmark.vue';
+import NavBar from '@/ui/NavBar.vue';
+import Hot from './refactor/hot/Hot.vue';
+import Sport from './refactor/sport/Sport.vue';
+import Finance from './refactor/finance/Finance.vue';
+import Entertainment from './refactor/entertainment/Entertainment.vue';
+import Bookmark from './refactor/bookmark/Bookmark.vue';
 import { useBookmark } from './composables/bookmark';
 
 const currentComponent = ref('Hot');

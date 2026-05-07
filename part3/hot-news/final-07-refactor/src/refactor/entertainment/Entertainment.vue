@@ -1,0 +1,16 @@
+<template>
+  <!-- <van-card v-for="currentNew in news" :price="currentNew.source" :desc="currentNew.desc" :title="currentNew.title" :thumb="currentNew.imgList[0]" currency=""> </van-card> -->
+  <NewList :news></NewList>
+</template>
+<script setup>
+import { onMounted, ref } from 'vue';
+import { getEntertainmentNews } from '../../services/apiEntertainmentNew';
+import NewList from '@/ui/NewList.vue';
+
+const news = ref([]);
+
+onMounted(async () => {
+  const data = await getEntertainmentNews();
+  news.value = data;
+});
+</script>
